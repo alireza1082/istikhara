@@ -17,8 +17,8 @@ def print_hi():
         page = requests.get(f"https://www.aviny.com/استخاره/{a}")
         soup = BeautifulSoup(page.text, 'html.parser').find('div', {
             "class": "field field--name-field-natije field--type-string-long field--label-inline clearfix"})
-    except NameError:
-        print(f"cant access aviny because {NameError}")
+    except Exception as ex:
+        print(f"cant access aviny because {ex}")
     print(f'Hi, {a}')  # Press ⌘F8 to toggle the breakpoint.
     if soup is not None:
         print(soup.text.rstrip())
